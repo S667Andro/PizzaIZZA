@@ -865,37 +865,151 @@ body {
   }
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
+/* Advanced Mobile Responsiveness */
+
+/* Viewport optimizations */
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+
+/* Base mobile styles */
+@media (max-width: 1200px) {
+  .main-content {
+    padding: 1.5rem;
+  }
+  
+  .pizza-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Tablet styles (768px - 1024px) */
+@media (max-width: 1024px) {
   .header-content {
     padding: 1rem;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .contact-number {
+    font-size: 0.95rem;
+    order: 3;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .pizza-detail-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .nutrition-info {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .extra-ingredients-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large mobile/small tablet (481px - 768px) */
+@media (max-width: 768px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header-content {
+    padding: 0.8rem 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
   }
 
   .header-actions {
     order: -1;
     width: 100%;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: nowrap;
     gap: 0.5rem;
   }
 
   .contact-number {
+    font-size: 0.85rem;
+    order: 0;
+    width: auto;
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+
+  .cart-btn,
+  .profile-btn {
+    padding: 0.7rem 1.2rem;
     font-size: 0.9rem;
-  }
-
-  .pizza-header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .featured-pizza-image {
-    height: 200px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .nav {
     order: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav button {
+    width: 50%;
+    max-width: 200px;
+    padding: 0.8rem;
+  }
+
+  .logo {
+    order: 2;
+  }
+
+  .pizza-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pizza-header h2 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .hamburger-btn {
+    flex-shrink: 0;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  .search-menu {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .search-input {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 20px;
+  }
+
+  .featured-pizza-image {
+    height: 250px;
+    border-radius: 15px;
   }
 
   .main-content {
@@ -904,43 +1018,67 @@ body {
 
   .pizza-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .pizza-detail-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .pizza-card {
+    padding: 1.2rem;
+    border-radius: 15px;
+  }
+
+  .pizza-card img {
+    height: 180px;
+    border-radius: 12px;
   }
 
   .nutrition-info {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+
+  .nutrition-item .value {
+    font-size: 1.3rem;
+  }
+
+  .size-selector {
+    gap: 0.8rem;
+  }
+
+  .size-selector button {
+    padding: 0.8rem;
+    font-size: 0.95rem;
   }
 
   .extra-ingredients-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .cart-item {
-    grid-template-columns: 80px 1fr;
     gap: 1rem;
   }
 
-  .item-price {
-    grid-column: 1 / -1;
-    text-align: center;
-    margin-top: 1rem;
+  .cart-item {
+    grid-template-columns: 90px 1fr auto;
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+
+  .cart-item img {
+    width: 90px;
+    height: 90px;
   }
 
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .slogan-section h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .modal {
     width: 95%;
+    max-width: 450px;
     padding: 1.5rem;
+    margin: 1rem;
   }
 
   .payment-options {
@@ -949,20 +1087,263 @@ body {
   }
 }
 
+/* Standard mobile (361px - 480px) */
 @media (max-width: 480px) {
+  .header-content {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .header-actions {
+    gap: 0.3rem;
+  }
+
+  .contact-number {
+    font-size: 0.8rem;
+    order: 1;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0.3rem;
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 10px;
+  }
+
+  .cart-btn,
+  .profile-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 20px;
+  }
+
+  .logo h1 {
+    font-size: 1.6rem;
+  }
+
+  .nav button {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .pizza-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .pizza-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .hamburger-btn {
+    align-self: flex-start;
+    margin-bottom: 0.5rem;
+  }
+
+  .main-content {
+    padding: 0.8rem;
+  }
+
+  .pizza-card {
+    padding: 1rem;
+  }
+
+  .pizza-card img {
+    height: 160px;
+  }
+
+  .pizza-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .price-section {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: stretch;
+  }
+
+  .select-btn {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  .nutrition-info {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  .nutrition-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 8px;
+  }
+
+  .nutrition-item .value {
+    font-size: 1.2rem;
+  }
+
+  .size-selector {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .size-selector button {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .extra-ingredients-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .extra-ingredient {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: left;
+  }
+
+  .extra-ingredient img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0;
+  }
+
+  .extra-ingredient span:first-of-type {
+    flex: 1;
+    font-weight: 600;
+  }
+
+  .extra-ingredient span:last-of-type {
+    font-weight: bold;
+    color: #ff6b35;
+  }
+
+  .cart-item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .cart-item img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+
+  .item-info {
+    order: 1;
+  }
+
+  .item-price {
+    order: 2;
+    margin-top: 1rem;
+  }
+
+  .quantity-controls {
+    justify-content: center;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .slogan-section h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .slogan-section p {
+    font-size: 1rem;
+  }
+
+  .featured-pizza-image {
+    height: 200px;
+  }
+
+  .pizza-list h2,
+  .cart-page h2,
+  .profile-page h2 {
+    font-size: 1.8rem;
+  }
+
+  .modal {
+    width: 95%;
+    max-width: 350px;
+    padding: 1.2rem;
+    border-radius: 15px;
+  }
+
+  .modal-close {
+    top: 0.8rem;
+    right: 0.8rem;
+    font-size: 1.5rem;
+  }
+
+  .auth-form h3,
+  .code-form h3,
+  .address-form h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .back-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Small mobile (320px - 360px) */
+@media (max-width: 360px) {
   .header-content {
     padding: 0.5rem;
   }
 
+  .contact-number {
+    font-size: 0.75rem;
+  }
+
   .cart-btn,
-  .profile-btn,
-  .nav button {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
+  .profile-btn {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
   }
 
   .logo h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .nav button {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .main-content {
+    padding: 0.6rem;
+  }
+
+  .pizza-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .pizza-card {
+    padding: 0.8rem;
+  }
+
+  .pizza-card img {
+    height: 140px;
+    border-radius: 10px;
   }
 
   .hero-content h1 {
@@ -970,25 +1351,172 @@ body {
   }
 
   .slogan-section h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
-  .pizza-list h2,
-  .cart-page h2,
-  .profile-page h2 {
-    font-size: 2rem;
+  .featured-pizza-image {
+    height: 180px;
+  }
+
+  .modal {
+    width: 98%;
+    max-width: 320px;
+    padding: 1rem;
   }
 
   .nutrition-info {
-    grid-template-columns: 1fr;
-    text-align: center;
+    padding: 1rem;
   }
 
-  .size-selector {
-    flex-direction: column;
+  .size-selector button {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small mobile (max 320px) */
+@media (max-width: 320px) {
+  .header-content {
+    padding: 0.4rem;
   }
 
-  .extra-ingredients-grid {
-    grid-template-columns: 1fr;
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .contact-number {
+    font-size: 0.7rem;
+    padding: 0.2rem;
+  }
+
+  .cart-btn,
+  .profile-btn {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .main-content {
+    padding: 0.5rem;
+  }
+
+  .pizza-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.3rem;
+  }
+
+  .slogan-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .featured-pizza-image {
+    height: 160px;
+  }
+
+  .pizza-card img {
+    height: 120px;
+  }
+
+  .modal {
+    width: 98%;
+    max-width: 300px;
+    padding: 0.8rem;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    height: 250px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .featured-pizza-image {
+    height: 150px;
+  }
+
+  .modal {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .pizza-detail-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (pointer: coarse) {
+  .pizza-card,
+  .extra-ingredient,
+  .cart-btn,
+  .profile-btn,
+  .nav button,
+  .select-btn,
+  .size-selector button {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  .hamburger-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .quantity-controls button {
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  .remove-btn,
+  .modal-close {
+    min-width: 36px;
+    min-height: 36px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .pizza-card img,
+  .cart-item img,
+  .featured-pizza-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .search-input,
+  .auth-form input,
+  .code-form input,
+  .address-form input {
+    background-color: #2d2d2d;
+    color: white;
+    border-color: #555;
+  }
+
+  .pizza-card,
+  .cart-item,
+  .modal,
+  .nutrition-info,
+  .profile-info {
+    background-color: #2d2d2d;
+    color: white;
   }
 }
