@@ -50,6 +50,16 @@ export default function App() {
   const [showSearchMenu, setShowSearchMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Автофокус на поисковую строку при открытии
+  useEffect(() => {
+    if (showSearchMenu) {
+      const searchInput = document.querySelector('.search-input');
+      if (searchInput) {
+        setTimeout(() => searchInput.focus(), 0);
+      }
+    }
+  }, [showSearchMenu]);
+
   const HomePage = () => (
     <div className="home-page">
       <div className="hero-section">
@@ -97,6 +107,15 @@ export default function App() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="search-input"
+              autoFocus
+              onBlur={(e) => {
+                // Предотвращаем потерю фокуса при клике по другим элементам
+                setTimeout(() => {
+                  if (showSearchMenu && document.activeElement !== e.target) {
+                    e.target.focus();
+                  }
+                }, 100);
+              }}
             />
           </div>
         )}
