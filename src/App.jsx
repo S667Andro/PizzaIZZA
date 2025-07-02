@@ -4,35 +4,35 @@ import './App.css';
 
 // Pizza data based on the images
 const pizzaData = [
-  { id: 1, name: 'Пицца Маргарита', price: 429, weight: 540, calories: 265, proteins: 11, fats: 11, carbs: 30, ingredients: ['Сыр Моцарелла', 'Помидоры', 'Томатный соус'], image: '/api/placeholder/300/300' },
-  { id: 2, name: 'Пицца Пепперони', price: 459, weight: 560, calories: 285, proteins: 13, fats: 12, carbs: 32, ingredients: ['Пепперони', 'Сыр Моцарелла', 'Томатный соус'], image: '/api/placeholder/300/300' },
-  { id: 3, name: 'Пицца "6 сыров"', price: 875, weight: 570, calories: 320, proteins: 18, fats: 15, carbs: 28, ingredients: ['Моцарелла', 'Чеддер', 'Пармезан', 'Дор блю', 'Гауда', 'Сливочный сыр'], image: '/api/placeholder/300/300' },
-  { id: 4, name: 'Пицца Мясной пир', price: 499, weight: 590, calories: 295, proteins: 16, fats: 14, carbs: 30, ingredients: ['Пепперони', 'Салями', 'Ветчина', 'Сыр Моцарелла'], image: '/api/placeholder/300/300' },
-  { id: 5, name: 'Пицца Деревенская', price: 459, weight: 610, calories: 275, proteins: 14, fats: 13, carbs: 31, ingredients: ['Ветчина', 'Грибы', 'Лук', 'Сыр Моцарелла'], image: '/api/placeholder/300/300' },
-  { id: 6, name: 'Пицца Супер Пепперони', price: 785, weight: 560, calories: 310, proteins: 15, fats: 16, carbs: 29, ingredients: ['Двойная порция пепперони', 'Сыр Моцарелла', 'Томатный соус'], image: '/api/placeholder/300/300' },
-  { id: 7, name: 'Пицца "4 сыра"', price: 469, weight: 585, calories: 300, proteins: 17, fats: 14, carbs: 28, ingredients: ['Моцарелла', 'Чеддер', 'Пармезан', 'Дор блю'], image: '/api/placeholder/300/300' },
-  { id: 8, name: 'Пицца Аляска', price: 785, weight: 620, calories: 290, proteins: 15, fats: 13, carbs: 32, ingredients: ['Лосось', 'Крем-сыр', 'Каперсы', 'Красный лук'], image: '/api/placeholder/300/300' },
-  { id: 9, name: 'Пицца Чизбургер', price: 685, weight: 680, calories: 340, proteins: 18, fats: 17, carbs: 35, ingredients: ['Говядина', 'Чеддер', 'Огурцы', 'Лук', 'Горчичный соус'], image: '/api/placeholder/300/300' },
-  { id: 10, name: 'Пицца Гавайская', price: 570, weight: 590, calories: 270, proteins: 13, fats: 12, carbs: 33, ingredients: ['Ветчина', 'Ананасы', 'Сыр Моцарелла'], image: '/api/placeholder/300/300' },
-  { id: 11, name: 'Пицца Сити суприм', price: 1110, weight: 650, calories: 350, proteins: 19, fats: 18, carbs: 34, ingredients: ['Пепперони', 'Салями', 'Ветчина', 'Грибы', 'Перец', 'Лук'], image: '/api/placeholder/300/300' },
-  { id: 12, name: 'Пицца Калифорния', price: 685, weight: 585, calories: 285, proteins: 14, fats: 13, carbs: 31, ingredients: ['Курица', 'Бекон', 'Авокадо', 'Помидоры'], image: '/api/placeholder/300/300' },
-  { id: 13, name: 'Пицца Домашняя', price: 459, weight: 570, calories: 260, proteins: 12, fats: 11, carbs: 32, ingredients: ['Колбаса', 'Грибы', 'Лук', 'Сыр Моцарелла'], image: '/api/placeholder/300/300' },
-  { id: 14, name: 'Пицца Мясное ассорти', price: 769, weight: 650, calories: 330, proteins: 17, fats: 16, carbs: 30, ingredients: ['Пепперони', 'Салями', 'Ветчина', 'Бекон'], image: '/api/placeholder/300/300' },
-  { id: 15, name: 'Пицца с тигровыми креветками', price: 1110, weight: 675, calories: 250, proteins: 20, fats: 8, carbs: 30, ingredients: ['Тигровые креветки', 'Чеснок', 'Руккола', 'Пармезан'], image: '/api/placeholder/300/300' },
-  { id: 16, name: 'Пицца Род Айленд', price: 685, weight: 615, calories: 315, proteins: 16, fats: 15, carbs: 32, ingredients: ['Пепперони', 'Итальянские травы', 'Оливки', 'Перец'], image: '/api/placeholder/300/300' },
-  { id: 17, name: 'Пицца Ранч', price: 479, weight: 650, calories: 280, proteins: 13, fats: 13, carbs: 33, ingredients: ['Курица', 'Бекон', 'Соус Ранч', 'Помидоры'], image: '/api/placeholder/300/300' },
-  { id: 18, name: 'Пицца с лососем и соусом песто', price: 1110, weight: 535, calories: 290, proteins: 18, fats: 12, carbs: 29, ingredients: ['Лосось', 'Соус песто', 'Руккола', 'Помидоры черри'], image: '/api/placeholder/300/300' },
-  { id: 19, name: 'Пицца Грибной Микс', price: 659, weight: 575, calories: 255, proteins: 11, fats: 10, carbs: 34, ingredients: ['Шампиньоны', 'Вешенки', 'Лисички', 'Сыр Моцарелла'], image: '/api/placeholder/300/300' },
-  { id: 20, name: 'Пицца с шампиньонами', price: 685, weight: 525, calories: 245, proteins: 10, fats: 9, carbs: 35, ingredients: ['Шампиньоны', 'Сыр Моцарелла', 'Лук', 'Итальянские травы'], image: '/api/placeholder/300/300' }
+  { id: 1, name: 'Пицца Маргарита', price: 429, weight: 540, calories: 265, proteins: 11, fats: 11, carbs: 30, ingredients: ['Сыр Моцарелла', 'Помидоры', 'Томатный соус'], image: 'https://user36270.clients-cdnnow.ru/1695726763356-300x217@2x.webp' },
+  { id: 2, name: 'Пицца Пепперони', price: 459, weight: 560, calories: 285, proteins: 13, fats: 12, carbs: 32, ingredients: ['Пепперони', 'Сыр Моцарелла', 'Томатный соус'], image: 'https://user36270.clients-cdnnow.ru/1689062759275-300x217@2x.webp' },
+  { id: 3, name: 'Пицца "6 сыров"', price: 875, weight: 570, calories: 320, proteins: 18, fats: 15, carbs: 28, ingredients: ['Моцарелла', 'Чеддер', 'Пармезан', 'Дор блю', 'Гауда', 'Сливочный сыр'], image: 'https://user36270.clients-cdnnow.ru/1689063114888-300x217@2x.webp' },
+  { id: 4, name: 'Пицца Мясной пир', price: 499, weight: 590, calories: 295, proteins: 16, fats: 14, carbs: 30, ingredients: ['Пепперони', 'Салями', 'Ветчина', 'Сыр Моцарелла'], image: 'https://user36270.clients-cdnnow.ru/1689063393532-300x217@2x.webp' },
+  { id: 5, name: 'Пицца Деревенская', price: 459, weight: 610, calories: 275, proteins: 14, fats: 13, carbs: 31, ingredients: ['Ветчина', 'Грибы', 'Лук', 'Сыр Моцарелла'], image: 'https://user36270.clients-cdnnow.ru/1689063533888-300x217@2x.webp' },
+  { id: 6, name: 'Пицца Супер Пепперони', price: 785, weight: 560, calories: 310, proteins: 15, fats: 16, carbs: 29, ingredients: ['Двойная порция пепперони', 'Сыр Моцарелла', 'Томатный соус'], image: 'https://user36270.clients-cdnnow.ru/1689063724168-300x217@2x.webp' },
+  { id: 7, name: 'Пицца "4 сыра"', price: 469, weight: 585, calories: 300, proteins: 17, fats: 14, carbs: 28, ingredients: ['Моцарелла', 'Чеддер', 'Пармезан', 'Дор блю'], image: 'https://user36270.clients-cdnnow.ru/1695727958387-300x217@2x.webp' },
+  { id: 8, name: 'Пицца Аляска', price: 785, weight: 620, calories: 290, proteins: 15, fats: 13, carbs: 32, ingredients: ['Лосось', 'Крем-сыр', 'Каперсы', 'Красный лук'], image: 'https://user36270.clients-cdnnow.ru/1689064682869-300x217@2x.webp' },
+  { id: 9, name: 'Пицца Чизбургер', price: 685, weight: 680, calories: 340, proteins: 18, fats: 17, carbs: 35, ingredients: ['Говядина', 'Чеддер', 'Огурцы', 'Лук', 'Горчичный соус'], image: 'https://user36270.clients-cdnnow.ru/1689065143487-300x217@2x.webp' },
+  { id: 10, name: 'Пицца Гавайская', price: 570, weight: 590, calories: 270, proteins: 13, fats: 12, carbs: 33, ingredients: ['Ветчина', 'Ананасы', 'Сыр Моцарелла'], image: 'https://user36270.clients-cdnnow.ru/1689065350379-300x217@2x.webp' },
+  { id: 11, name: 'Пицца Сити суприм', price: 1110, weight: 650, calories: 350, proteins: 19, fats: 18, carbs: 34, ingredients: ['Пепперони', 'Салями', 'Ветчина', 'Грибы', 'Перец', 'Лук'], image: 'https://user36270.clients-cdnnow.ru/1689065677982-300x217@2x.webp' },
+  { id: 12, name: 'Пицца Калифорния', price: 685, weight: 585, calories: 285, proteins: 14, fats: 13, carbs: 31, ingredients: ['Курица', 'Бекон', 'Авокадо', 'Помидоры'], image: 'https://user36270.clients-cdnnow.ru/1689065880652-300x217@2x.webp' },
+  { id: 13, name: 'Пицца Домашняя', price: 459, weight: 570, calories: 260, proteins: 12, fats: 11, carbs: 32, ingredients: ['Колбаса', 'Грибы', 'Лук', 'Сыр Моцарелла'], image: 'https://user36270.clients-cdnnow.ru/1689066025873-300x217@2x.webp' },
+  { id: 14, name: 'Пицца Мясное ассорти', price: 769, weight: 650, calories: 330, proteins: 17, fats: 16, carbs: 30, ingredients: ['Пепперони', 'Салями', 'Ветчина', 'Бекон'], image: 'https://user36270.clients-cdnnow.ru/1689066218607-300x217@2x.webp' },
+  { id: 15, name: 'Пицца с тигровыми креветками', price: 1110, weight: 675, calories: 250, proteins: 20, fats: 8, carbs: 30, ingredients: ['Тигровые креветки', 'Чеснок', 'Руккола', 'Пармезан'], image: 'https://user36270.clients-cdnnow.ru/1689066453674-300x217@2x.webp' },
+  { id: 16, name: 'Пицца Род Айленд', price: 685, weight: 615, calories: 315, proteins: 16, fats: 15, carbs: 32, ingredients: ['Пепперони', 'Итальянские травы', 'Оливки', 'Перец'], image: 'https://user36270.clients-cdnnow.ru/1689066626878-300x217@2x.webp' },
+  { id: 17, name: 'Пицца Ранч', price: 479, weight: 650, calories: 280, proteins: 13, fats: 13, carbs: 33, ingredients: ['Курица', 'Бекон', 'Соус Ранч', 'Помидоры'], image: 'https://user36270.clients-cdnnow.ru/1689066769430-300x217@2x.webp' },
+  { id: 18, name: 'Пицца с лососем и соусом песто', price: 1110, weight: 535, calories: 290, proteins: 18, fats: 12, carbs: 29, ingredients: ['Лосось', 'Соус песто', 'Руккола', 'Помидоры черри'], image: 'https://user36270.clients-cdnnow.ru/1689067010439-300x217@2x.webp' },
+  { id: 19, name: 'Пицца Грибной Микс', price: 659, weight: 575, calories: 255, proteins: 11, fats: 10, carbs: 34, ingredients: ['Шампиньоны', 'Вешенки', 'Лисички', 'Сыр Моцарелла'], image: 'https://user36270.clients-cdnnow.ru/1689067148601-300x217@2x.webp' },
+  { id: 20, name: 'Пицца с шампиньонами', price: 685, weight: 525, calories: 245, proteins: 10, fats: 9, carbs: 35, ingredients: ['Шампиньоны', 'Сыр Моцарелла', 'Лук', 'Итальянские травы'], image: 'https://user36270.clients-cdnnow.ru/1689067372543-300x217@2x.webp' }
 ];
 
 const extraIngredients = [
-  { id: 'pepperoni', name: 'Пепперони', price: 150, image: '/api/placeholder/60/60' },
-  { id: 'mushrooms', name: 'Грибы', price: 100, image: '/api/placeholder/60/60' },
-  { id: 'ham', name: 'Ветчина', price: 120, image: '/api/placeholder/60/60' },
-  { id: 'cheese', name: 'Доп. сыр', price: 80, image: '/api/placeholder/60/60' },
-  { id: 'olives', name: 'Оливки', price: 90, image: '/api/placeholder/60/60' },
-  { id: 'tomatoes', name: 'Помидоры', price: 70, image: '/api/placeholder/60/60' }
+  { id: 'pepperoni', name: 'Пепперони', price: 150, image: 'https://user36270.clients-cdnnow.ru/1690451421246-180x113@2x.webp' },
+  { id: 'mushrooms', name: 'Грибы', price: 100, image: 'https://user36270.clients-cdnnow.ru/1690451662826-180x113@2x.webp' },
+  { id: 'ham', name: 'Ветчина', price: 120, image: 'https://user36270.clients-cdnnow.ru/1690451457142-180x113@2x.webp' },
+  { id: 'cheese', name: 'Доп. сыр', price: 80, image: 'https://user36270.clients-cdnnow.ru/1690451740990-180x113@2x.webp' },
+  { id: 'olives', name: 'Оливки', price: 90, image: 'https://user36270.clients-cdnnow.ru/1690452264839-180x113@2x.webp' },
+  { id: 'tomatoes', name: 'Помидоры', price: 70, image: 'https://user36270.clients-cdnnow.ru/1690451973940-180x113@2x.webp' }
 ];
 
 export default function App() {
