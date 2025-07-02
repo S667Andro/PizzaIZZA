@@ -47,14 +47,23 @@ export default function App() {
   const [showAddressModal, setShowAddressModal] = useState(false);
   const [deliveryAddress, setDeliveryAddress] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
+  const [showSearchMenu, setShowSearchMenu] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const HomePage = () => (
     <div className="home-page">
       <div className="hero-section">
         <div className="hero-content">
-          <h1>Назар просит тройку</h1>
+          <h1 className="orange-text">Назар просит тройку</h1>
           <p>Лучшая пицца в городе!</p>
         </div>
+      </div>
+      <div className="featured-image-section">
+        <img 
+          src="https://st.biglion.ru/cfs15/deal_offer_photo/70/d2/70d2fdff4a00977490e57e99f9673ea9.jpg" 
+          alt="Вкусная пицца" 
+          className="featured-pizza-image"
+        />
       </div>
       <div className="slogan-section">
         <h2>PizzaIZZA - Вкус, который объединяет!</h2>
@@ -63,24 +72,51 @@ export default function App() {
     </div>
   );
 
-  const PizzaListPage = () => (
-    <div className="pizza-list">
-      <h2>Наша пицца</h2>
-      <div className="pizza-grid">
-        {pizzaData.map(pizza => (
-          <div key={pizza.id} className="pizza-card" onClick={() => setSelectedPizza(pizza)}>
-            <img src={pizza.image} alt={pizza.name} />
-            <h3>{pizza.name}</h3>
-            <p className="weight">{pizza.weight} г</p>
-            <div className="price-section">
-              <span className="price">от {pizza.price} ₽</span>
-              <button className="select-btn">Выбрать</button>
-            </div>
+  const PizzaListPage = () => {
+    const filteredPizzas = pizzaData.filter(pizza =>
+      pizza.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    return (
+      <div className="pizza-list">
+        <div className="pizza-header">
+          <button 
+            className="hamburger-btn"
+            onClick={() => setShowSearchMenu(!showSearchMenu)}
+          >
+            ☰
+          </button>
+          <h2>Наша пицца</h2>
+        </div>
+        
+        {showSearchMenu && (
+          <div className="search-menu">
+            <input
+              type="text"
+              placeholder="Поиск пиццы..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-input"
+            />
           </div>
-        ))}
+        )}
+        
+        <div className="pizza-grid">
+          {filteredPizzas.map(pizza => (
+            <div key={pizza.id} className="pizza-card" onClick={() => setSelectedPizza(pizza)}>
+              <img src={pizza.image} alt={pizza.name} />
+              <h3>{pizza.name}</h3>
+              <p className="weight">{pizza.weight} г</p>
+              <div className="price-section">
+                <span className="price">от {pizza.price} ₽</span>
+                <button className="select-btn">Выбрать</button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   const PizzaDetailPage = () => {
     const [selectedSize, setSelectedSize] = useState('25');
@@ -336,8 +372,8 @@ export default function App() {
     };
 
     return (
-      <div className="modal-overlay" onClick={() => setShowAuth(false)}>
-        <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-overlay" onMouseDown={() => setShowAuth(false)}>
+        <div className="modal" onMouseDown={(e) => e.stopPropagation()}>
           <button className="modal-close" onClick={() => setShowAuth(false)}>×</button>
           {!showCodeInput ? (
             <div className="auth-form">
@@ -347,6 +383,7 @@ export default function App() {
                 placeholder="+7 (900) 000 0000"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
+                autoFocus
               />
               <button onClick={handleSendCode}>Отправить код</button>
               <p className="agreement">
@@ -363,6 +400,7 @@ export default function App() {
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 maxLength="4"
+                autoFocus
               />
               <button onClick={handleCodeSubmit}>Подтвердить</button>
             </div>
@@ -384,8 +422,8 @@ export default function App() {
     };
 
     return (
-      <div className="modal-overlay" onClick={() => setShowAddressModal(false)}>
-        <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-overlay" onMouseDown={() => setShowAddressModal(false)}>
+        <div className="modal" onMouseDown={(e) => e.stopPropagation()}>
           <button className="modal-close" onClick={() => setShowAddressModal(false)}>×</button>
           <div className="address-form">
             <h3>Оформление заказа</h3>
@@ -396,6 +434,7 @@ export default function App() {
                 placeholder="Введите адрес"
                 value={deliveryAddress}
                 onChange={(e) => setDeliveryAddress(e.target.value)}
+                autoFocus
               />
             </div>
             <div className="form-group">
@@ -463,6 +502,9 @@ export default function App() {
           </div>
           
           <div className="header-actions">
+            <div className="contact-number">
+              <span>📞 +7 (495) 488-70-76</span>
+            </div>
             <button 
               className="cart-btn"
               onClick={() => setCurrentPage('cart')}
